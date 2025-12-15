@@ -62,7 +62,7 @@ More specifically, the project aims to:
    LIMIT 5;
 
 7. **Write a query identifies the bottom 5 least-selling pizza types in April based on total units sold.**
- ```sql
+   ```sql
     SELECT
          pizza_name,
          sum(quantity) AS Total_Pizza_Sold
@@ -71,5 +71,23 @@ More specifically, the project aims to:
    GROUP BY pizza_name
    ORDER BY Total_Pizza_Sold
    LIMIT 5;
+
+8. **Which pizza sizes and categories contribute most to revenue at different times of day, and how can we optimize pricing or promotions to maximize sales?**
+   ```sql
+   SELECT
+    pizza_size,
+    pizza_category,
+    CASE
+        WHEN HOUR(STR_TO_DATE(order_time, '%H:%i:%s')) BETWEEN 6 AND 11 THEN 'Morning'
+        WHEN HOUR(STR_TO_DATE(order_time, '%H:%i:%s')) BETWEEN 12 AND 16 THEN 'Afternoon'
+        WHEN HOUR(STR_TO_DATE(order_time, '%H:%i:%s')) BETWEEN 17 AND 21 THEN 'Evening'
+        ELSE 'Night'
+    END AS Time_of_Day,
+    SUM(total_price) AS Total_Revenue,
+    SUM(quantity) AS Total_Quantity
+FROM pizza_sales
+GROUP BY pizza_size, pizza_category, Time_of_Day
+ORDER BY Time_of_Day, Total_Revenue DESC;
+
 
     
