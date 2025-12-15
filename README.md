@@ -32,8 +32,8 @@ More specifically, the project aims to:
           FROM pizza_sales
     GROUP BY HOUR(order_time);
  3. **Write an sql query that answers; <br>In the first quarter (Q1), how much total sales did each pizza size generate, and what percentage of total Q1 sales does each pizza size contribute?**
-    ```sql
-    SELECT
+```sql
+SELECT
         pizza_size,
         CAST(SUM(total_price) AS DECIMAL(10,2))AS Total_Sales,
         CAST(sum(total_price)*100/ (SELECT SUM(total_price)
@@ -43,6 +43,7 @@ More specifically, the project aims to:
     WHERE QUARTER(STR_TO_DATE(order_date, '%Y-%m-%d'))=1
     GROUP BY pizza_size
     ORDER BY PCT;
+    
  4. **What is the Total Pizza Sold By Pizza Category**
     ```sql
    SELECT
@@ -59,7 +60,7 @@ More specifically, the project aims to:
    WHERE MONTH(str_to_date(order_date,"%Y-%m-%d"))=1
    GROUP BY pizza_name
    ORDER BY Total_Pizza_Sold DESC
-   LIMIT 5
+   LIMIT 5;
 
 7. **Write a query identifies the bottom 5 least-selling pizza types in April based on total units sold.**
  ```sql
