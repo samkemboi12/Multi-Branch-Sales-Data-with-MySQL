@@ -106,7 +106,7 @@ Classic pizzas are the most popular, with 14,888 orders, followed by Supreme -11
 - Ensure ingredients for Classic and Supreme pizzas are always in stock to meet high demand, especially during peak hours.
    ## Conclusion
   The findings from this project provide valuable insights into sales patterns, peak hours, and product performance. Stakeholders can use this information to make informed business decisions, such as optimizing staffing during peak hours, managing inventory efficiently, and targeting promotions for low-selling pizza sizes or categories. By understanding which pizza sizes and categories contribute most to revenue and which customers drive the highest sales, managers can ensure popular products are always available, improve marketing strategies, and enhance overall customer satisfaction.
-  ##
+  ## Quick Start Guide
 - Clone the Repository: Clone this project repository from GitHub.
 - Run the Queries: Use the SQL queries provided in the business_analysis.sql file to perform your analysis.
 - Explore and Modify: Update SQL queries or charts to analyze and answer additional business questions.
