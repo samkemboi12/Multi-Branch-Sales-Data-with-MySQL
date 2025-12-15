@@ -1,5 +1,5 @@
 # Multi-Branch-Sales-Data-with-MySQL
-This project performs a comprehensive analysis of multi-branch retail sales data using MySQL to uncover actionable business insights and support data-driven decision-making.
+This project performs a comprehensive analysis of multi-branch retail (12 branches for a Pizza Business) sales data using MySQL to uncover actionable business insights and support data-driven decision-making.
 ## Project Dashboard
 You can view the interactive dashboard here to explore the business performance, including sales trends, peak hours and days, and product performance.: [View Dashboard](https://1drv.ms/x/c/f78bfa6ecf60e134/IQAFP85212zTR7sC5OYQQ84HAeypXQ_qAXXugh4vQaOYibE?e=EVvErH)
 
