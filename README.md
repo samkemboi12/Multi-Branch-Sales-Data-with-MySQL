@@ -85,20 +85,20 @@ More specifically, the project aims to:
     END AS Time_of_Day,
     SUM(total_price) AS Total_Revenue,
     SUM(quantity) AS Total_Quantity
- FROM pizza_sales
- GROUP BY pizza_size, pizza_category, Time_of_Day
- ORDER BY Time_of_Day, Total_Revenue DESC;
+   FROM pizza_sales
+   GROUP BY pizza_size, pizza_category, Time_of_Day
+   ORDER BY Time_of_Day, Total_Revenue DESC;
  
 ## Business Insights and Business Recommendations
-1. **Sales Trend based on Time of the day and Day of the week.**
+1. **Sales Trend based on Time of the day and Day of the week.**<br>
    From the Analysis, Monday dorminates the total orders, followed by Tuesday with Friday being the least.<br> Peak hours is from 12 noon to 1pm and 5pm to 6pm.<br>The business should optimize staffing and inventory to match demand patterns.Scheduling more staff during these periods will improve service speed and customer satisfaction. Conversely, Fridays have the lowest orders, so staffing and inventory can be reduced to save costs.
-2. **Top performing Pizza Sizes**
+2. **Top performing Pizza Sizes**<br>
 Large (L) pizzas are the top revenue drivers in Q1, contributing 46.37% of total sales, followed by Medium (M) at 29.78%.
 Small (S) pizzas also have a decent share (22.10%), but XL and XXL contribute very little ,1.6% and 0.14% respectively.
 The business should focus marketing campaigns and combo deals around Large and Medium pizzas, since they drive the majority of revenue.
 It should consider whether XL and XXL pizzas should be repriced, bundled, or promoted differently to increase their sales, or possibly reduce inventory for them to avoid waste.
 Finally, it should stock more on the Large and medium pizza ingredients to meet the demand
-3. **The Top Performing Pizza Category**
+3. **The Top Performing Pizza Category**<br>
 Classic pizzas are the most popular, with 14,888 orders, followed by Supreme -11,987 and Veggie -11,649. Chicken pizzas have the lowest orders at 11,050.
 <br>The business should;
 - Highlight Classic and Supreme pizzas in combo deals or loyalty offers since they drive the most sales.
