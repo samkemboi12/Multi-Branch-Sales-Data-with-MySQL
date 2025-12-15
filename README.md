@@ -50,7 +50,7 @@ More specifically, the project aims to:
          sum(quantity)
          FROM pizza_sales
     GROUP BY pizza_category;
-6. **Write a query that identifies the 5 top-selling pizza types in January based on total units sold.
+6. **Write a query that identifies the 5 top-selling pizza types in January based on total units sold.**
    ```sql
    SELECT
          pizza_name,
@@ -59,8 +59,9 @@ More specifically, the project aims to:
    WHERE MONTH(str_to_date(order_date,"%Y-%m-%d"))=1
    GROUP BY pizza_name
    ORDER BY Total_Pizza_Sold DESC
-   LIMIT 5;
-7. Write a query identifies the bottom 5 least-selling pizza types in April based on total units sold.
+   LIMIT 5
+
+7. **Write a query identifies the bottom 5 least-selling pizza types in April based on total units sold.**
  ```sql
     SELECT
          pizza_name,
