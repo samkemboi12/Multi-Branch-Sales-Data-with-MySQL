@@ -17,10 +17,58 @@ More specifically, the project aims to:
 - Evaluate revenue contribution by pizza size and category
 - Provide actionable insights for pricing, promotions, and inventory planning
  ## Explanatory Data Analysis
- 1. How is the orders distributed in the days of the week
+ 1. **How is the orders distributed in the days of the week**
     ```sql
-    SELECT DAYNAME(STR_TO_DATE(order_date, '%Y-%m-%d')) AS Order_day,
+    SELECT
+           DAYNAME(STR_TO_DATE(order_date, '%Y-%m-%d')) AS Order_day,
            COUNT(DISTINCT order_id) AS Order_number
            FROM pizza_sales
     GROUP BY Order_day;
+ 2. **What are the peak hours of the day**
+    ```sql
+    SELECT
+          HOUR(order_time) as Hourly,
+          COUNT(DISTINCT order_id) as Orders
+          FROM pizza_sales
+    GROUP BY HOUR(order_time);
+ 3. **Write an sql query that answers; <br>In the first quarter (Q1), how much total sales did each pizza size generate, and what percentage of total Q1 sales does each pizza size contribute?**
+    ```sql
+    SELECT
+        pizza_size,
+        CAST(SUM(total_price) AS DECIMAL(10,2))AS Total_Sales,
+        CAST(sum(total_price)*100/ (SELECT SUM(total_price)
+        FROM pizza_sales
+    WHERE QUARTER(STR_TO_DATE(order_date, '%Y-%m-%d'))=1)  AS DECIMAL (10,2) )AS PCT
+    FROM pizza_sales
+    WHERE QUARTER(STR_TO_DATE(order_date, '%Y-%m-%d'))=1
+    GROUP BY pizza_size
+    ORDER BY PCT;
+ 4. **What is the Total Pizza Sold By Pizza Category**
+    ```sql
+   SELECT
+         pizza_category,
+         sum(quantity)
+         FROM pizza_sales
+    GROUP BY pizza_category;
+6. **Write a query that identifies the 5 top-selling pizza types in January based on total units sold.
+   ```sql
+   SELECT
+         pizza_name,
+         sum(quantity) AS Total_Pizza_Sold
+   FROM pizza_sales
+   WHERE MONTH(str_to_date(order_date,"%Y-%m-%d"))=1
+   GROUP BY pizza_name
+   ORDER BY Total_Pizza_Sold DESC
+   LIMIT 5;
+7. Write a query identifies the bottom 5 least-selling pizza types in April based on total units sold.
+ ```sql
+    SELECT
+         pizza_name,
+         sum(quantity) AS Total_Pizza_Sold
+   FROM pizza_sales
+   WHERE MONTH(str_to_date(order_date,"%Y-%m-%d"))=4
+   GROUP BY pizza_name
+   ORDER BY Total_Pizza_Sold
+   LIMIT 5;
+
     
